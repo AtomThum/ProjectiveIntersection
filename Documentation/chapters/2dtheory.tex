@@ -1,1 +1,35 @@
-\chapter{Intersections in two dimension}
+\chapter{Analytical ray tracing in two dimensions}
+
+\begin{abstract}
+    This chapter is a prologue to the next chapter, explores analytical ray tracing in two dimensions in both isometric and perspective projection.
+\end{abstract}
+
+\section{Construction of the light rays}
+
+Let the camera be situated at point $C(c_x, c_y)$. The light rays drawn from this camera is represented by every line that passes through $C$. A general line equation is
+\begin{equation}
+    L: mx + b = y
+\end{equation}
+Let $\theta$ represent the pitch of the camera, which directly represents the slope of the line that passes through $C$; therefore,
+\begin{equation}
+    L: \tan(\theta)x + b = y.
+\end{equation}
+We put on a constraint that $L$ must pass through $C$ to find $b$ in terms of $\theta$, $c_x$, and $c_y$.
+\begin{align}
+    \tan(\theta)c_x + b &= c_y \\
+    b &= c_y - c_x\tan(\theta);
+\end{align}
+thus,
+\begin{align}
+    \tan(\theta)x + c_y - c_x\tan(\theta) &= y \\
+    (x - c_x)\tan(\theta) &= (y - c_y).
+\end{align}
+
+Given an arbitrary two-dimensional function $f(x) = y$ and $\theta$, we have to find the intersection between $f(x)$ and $L$, which can be easily done:
+\begin{align}
+    (x - c_x)\tan(\theta) &= f(x) - c_y \\
+    f(x) - x\tan(\theta) + (c_x\tan(\theta) - c_y) &= 0.
+\end{align}
+For most functions, this equation might be even unsolvable. But it is analytically for polynomial $f(x)$ that has a degree less than five; most quintics are unsolvable. Or, we can use the Newton-Raphson's method to find the root. 
+
+\section{Analytical demonstration}
